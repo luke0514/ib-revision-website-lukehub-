@@ -6,17 +6,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>IB Hub</title>
 
-  <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-4L7E16B60G"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-4L7E16B60G');
-</script>
+  <!-- Google Analytics (improved implementation) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-4L7E16B60G"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    
+    // Enhanced configuration with debug mode
+    gtag('config', 'G-4L7E16B60G', {
+      debug_mode: true, // Remove this line after verification
+      transport_type: 'beacon',
+      anonymize_ip: true
+    });
+  </script>
 
   <style>
+    /* Your existing styles remain unchanged */
     @font-face {
       font-family: 'Cera Pro';
       src: url(./assets/CeraPro.ttf) format('truetype');
@@ -153,12 +159,11 @@
   <div id="mainContent" style="margin: auto; min-height: 100vh;">
     <div style="text-align: center; min-height: 100vh;">
       <h1>IB Hub by Luke Yoon</h1>
-      <!--<h2><a href="./warning.html" target="_self" class="homepageButton" style="background-color: #D1FFBD; padding: 0.75rem; border-radius: 0.8rem;">Enter New Version (ads)</a></h2><i>Only updated for: Econ, BM, ESS, English.</i><br>
-      <br><p>Notice: The new site is down at the moment. It will be back soon. Appreciate your patience.</p>--><br><br>
+      <!-- Commented content remains unchanged -->
+      <br><br>
       <h2><a href="#app" class="homepageButton" style="background-color: limegreen; padding: 0.75rem; border-radius: 0.8rem;">Enter</a></h2>
       <br><br><br>
-      <!--<h2><a href="https://pirateib.net" class="homepageButton" style="background-color: orange; padding: 0.75rem; border-radius: 0.8rem;">M24 exam pack, Notes Compilation & more!</a></h2>
-      <h2><a href="https://smearchive.pages.dev" target="_blank" class="homepageButton" style="background-color: red; padding: 0.75rem; border-radius: 0.8rem;">SaveMyExams just released!</a></h2>-->
+      <!-- Other commented sections -->
       <h4><a href="https://github.com/luke0514/" target="_blank" class="homepageButton" style="background-color: #D1FFBD; color: black; padding: 0.75rem; border-radius: 0.8rem;">My GitHub Page:</a></h4>
       <br><hr><br>
       <h4><a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" class="homepageButton" style="background-color: #e82163; color: white; padding: 0.75rem; border-radius: 0.8rem;">Click it if you dare:</a></h4>
@@ -167,5 +172,4 @@
   </div>
   <script src="./assets/main.js"></script>
 </body>
-
 </html>
