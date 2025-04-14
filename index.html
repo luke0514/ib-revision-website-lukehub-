@@ -2,155 +2,169 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IB Hub - Open Source Revision Platform</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IB Hub</title>
 
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-MZR8CD854N"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-MZR8CD854N');
-    </script>
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-MZR8CD854N"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-MZR8CD854N'); // ✅ This is the final, correct one
+</script>
 
-    <style>
-        :root {
-            --primary: #00C853;
-            --secondary: #009933;
-            --background: #f8f9fa;
-            --text: #2d3436;
-            --surface: #ffffff;
-            --border: #dfe6e9;
-        }
+  <style>
+    @font-face {
+      font-family: 'Cera Pro';
+      src: url(./assets/CeraPro.ttf) format('truetype');
+      font-weight: 400;
+      font-style: normal;
+    }
 
-        @font-face {
-            font-family: 'Cera Pro';
-            src: url(./assets/CeraPro.ttf) format('truetype');
-            font-weight: 400;
-            font-style: normal;
-        }
+    @font-face {
+      font-family: 'Cera Pro';
+      src: url(./assets/CeraProMedium.otf) format('opentype');
+      font-weight: 500;
+      font-style: normal;
+    }
 
-        @font-face {
-            font-family: 'Cera Pro';
-            src: url(./assets/CeraProMedium.otf) format('opentype');
-            font-weight: 500;
-            font-style: normal;
-        }
+    @font-face {
+      font-family: 'Cera Pro';
+      src: url(./assets/CeraProBold.otf) format('opentype');
+      font-weight: 700;
+      font-style: normal;
+    }
 
-        @font-face {
-            font-family: 'Cera Pro';
-            src: url(./assets/CeraProBold.otf) format('opentype');
-            font-weight: 700;
-            font-style: normal;
-        }
+    ol {
+      list-style: none;
+      counter-reset: li 0;
+    }
 
-        body {
-            margin: 0;
-            background: var(--background);
-            color: var(--text);
-            font-family: 'Cera Pro', sans-serif;
-            line-height: 1.6;
-        }
+    ol li:before {
+      counter-increment: li;
+      content: counter(li) ". ";
+    }
 
-        #navBar {
-            padding: 1.5rem;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            color: white;
-            text-align: center;
-            font-size: 1.5rem;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
+    body,
+    button,
+    html {
+      font-family: "Cera Pro", sans-serif
+    }
 
-        .main-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 2rem;
-            min-height: 100vh;
-        }
+    a {
+      text-decoration: none;
+      color: #000
+    }
 
-        .hero-section {
-            text-align: center;
-            padding: 4rem 1rem;
-        }
+    .choice {
+      border-radius: 1rem;
+      border: .125rem solid #000;
+      padding: 1rem
+    }
 
-        .cta-button {
-            display: inline-block;
-            padding: 1.25rem 2.5rem;
-            margin: 1rem;
-            border-radius: 1rem;
-            background: var(--primary);
-            color: white !important;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            font-weight: 500;
-        }
+    .choice:hover {
+      background-color: #f0f0f0
+    }
 
-        .cta-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
-            background: var(--secondary);
-        }
+    .navChoice {
+      color: limegreen
+    }
 
-        .social-links {
-            margin-top: 3rem;
-            padding-top: 2rem;
-            border-top: 2px solid var(--border);
-        }
+    .navChoice:hover {
+      text-decoration: underline
+    }
 
-        .social-button {
-            display: inline-block;
-            padding: 1rem 2rem;
-            margin: 0.5rem;
-            border-radius: 0.8rem;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            font-weight: 500;
-        }
+    .question {
+      border-radius: 1rem;
+      border: .125rem solid #000;
+      padding: 0;
+      display: flex;
+      margin-bottom: 1rem
+    }
 
-        .stats-banner {
-            background: var(--surface);
-            padding: 1.5rem;
-            border-radius: 1rem;
-            margin: 2rem auto;
-            max-width: 800px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-        }
-    </style>
+    .question p {
+      margin: 0
+    }
+
+    .question h2 {
+      margin-top: 0
+    }
+
+    .questionLeft {
+      width: 95%;
+      padding: 1rem
+    }
+
+    .questionInfo {
+      display: flex
+    }
+
+    .questionRight {
+      flex-grow: 1;
+      background-color: #f0f0f0;
+      padding: 1rem;
+      border-radius: 0 1rem 1rem 0
+    }
+
+    .markscheme {
+      margin: auto;
+      max-width: 1600px
+    }
+
+    .marks {
+      position: relative;
+      float: right;
+      top: -1.3rem
+    }
+
+    .marks::before {
+      content: "["
+    }
+
+    .marks::after {
+      content: "]"
+    }
+
+    .calculator {
+      border-radius: 1rem;
+      margin: 0 1rem;
+      padding: .25rem
+    }
+
+    .calculatorAllowed {
+      background-color: limegreen
+    }
+
+    .calculatorNotAllowed {
+      background-color: red
+    }
+
+    .homepageButton:hover {
+      box-shadow: 3px 3px 5px
+    }
+  </style>
 </head>
 
 <body>
-    <h1 id="navBar">IB Hub - Free Open Source Platform</h1>
-
-    <div class="main-container">
-        <div class="hero-section">
-            <div class="stats-banner">
-                <h3>📚 1000+ Exam Questions with Mark Schemes</h3>
-                <p>Completely free - No login required</p>
-            </div>
-
-            <h1 style="font-size: 2.5rem; margin: 2rem 0;">by Luke Yoon</h1>
-            
-            <a href="#app" class="cta-button">Start Learning Now</a>
-
-            <div class="social-links">
-                <a href="https://github.com/luke0514/" target="_blank" 
-                   class="social-button" 
-                   style="background: #2d3436; color: white;">
-                    GitHub Repository
-                </a>
-                
-                <a href="https://discord.gg/8YcBVKyG" target="_blank" 
-                   class="social-button" 
-                   style="background: #5865F2; color: white;">
-                    Join Study Community
-                </a>
-            </div>
-        </div>
+  <h1 id="navBar" style="margin: 0;"></h1>
+  <div id="mainContent" style="margin: auto; min-height: 100vh;">
+    <div style="text-align: center; min-height: 100vh;">
+      <h1>IB Hub by Luke Yoon</h1>
+      <!--<h2><a href="./warning.html" target="_self" class="homepageButton" style="background-color: #D1FFBD; padding: 0.75rem; border-radius: 0.8rem;">Enter New Version (ads)</a></h2><i>Only updated for: Econ, BM, ESS, English.</i><br>
+      <br><p>Notice: The new site is down at the moment. It will be back soon. Appreciate your patience.</p>--><br><br>
+      <h2><a href="#app" class="homepageButton" style="background-color: limegreen; padding: 0.75rem; border-radius: 0.8rem;">Enter</a></h2>
+      <br><br><br>
+      <!--<h2><a href="https://pirateib.net" class="homepageButton" style="background-color: orange; padding: 0.75rem; border-radius: 0.8rem;">M24 exam pack, Notes Compilation & more!</a></h2>
+      <h2><a href="https://smearchive.pages.dev" target="_blank" class="homepageButton" style="background-color: red; padding: 0.75rem; border-radius: 0.8rem;">SaveMyExams just released!</a></h2>-->
+      <h4><a href="https://github.com/luke0514/" target="_blank" class="homepageButton" style="background-color: #D1FFBD; color: black; padding: 0.75rem; border-radius: 0.8rem;">My GitHub Page:</a></h4>
+      <br><hr><br>
+      <h4><a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" class="homepageButton" style="background-color: #e82163; color: white; padding: 0.75rem; border-radius: 0.8rem;">Click it if you dare:</a></h4>
+      <h4><a href="https://discord.gg/8YcBVKyG" target="_blank" class="homepageButton" style="background-color: #0088cc; color: white; padding: 0.75rem; border-radius: 0.8rem;">Join Discord</a></h4>
     </div>
-
-    <script src="./assets/main.js"></script>
+  </div>
+  <script src="./assets/main.js"></script>
 </body>
+
 </html>
