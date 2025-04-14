@@ -1,334 +1,170 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IB Hub - Ultimate Revision Platform</title>
-    
-    <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-4L7E16B60G"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-4L7E16B60G', {
-            transport_type: 'beacon',
-            anonymize_ip: true
-        });
-    </script>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IB Hub</title>
 
-    <!-- Preload Resources -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&family=JetBrains+Mono&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-MZR8CD854N"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-MZR8CD854N'); // ✅ This is the final, correct one
+</script>
 
-    <style>
-        :root {
-            --primary: #00ff88;
-            --background: #0a0a0a;
-            --surface: #1a1a1a;
-            --text: #ffffff;
-            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
+  <style>
+    @font-face {
+      font-family: 'Cera Pro';
+      src: url(./assets/CeraPro.ttf) format('truetype');
+      font-weight: 400;
+      font-style: normal;
+    }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+    @font-face {
+      font-family: 'Cera Pro';
+      src: url(./assets/CeraProMedium.otf) format('opentype');
+      font-weight: 500;
+      font-style: normal;
+    }
 
-        body {
-            background: var(--background);
-            color: var(--text);
-            font-family: 'Inter', sans-serif;
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
+    @font-face {
+      font-family: 'Cera Pro';
+      src: url(./assets/CeraProBold.otf) format('opentype');
+      font-weight: 700;
+      font-style: normal;
+    }
 
-        /* Custom Cursor */
-        .cursor {
-            position: fixed;
-            width: 20px;
-            height: 20px;
-            border: 2px solid var(--primary);
-            border-radius: 50%;
-            pointer-events: none;
-            transform: translate(-50%, -50%);
-            mix-blend-mode: difference;
-            z-index: 999;
-            transition: var(--transition);
-        }
+    ol {
+      list-style: none;
+      counter-reset: li 0;
+    }
 
-        .cursor-active {
-            transform: translate(-50%, -50%) scale(1.5);
-            background: var(--primary);
-        }
+    ol li:before {
+      counter-increment: li;
+      content: counter(li) ". ";
+    }
 
-        /* Hero Section */
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-direction: column;
-            background: linear-gradient(45deg, #0a0a0a 0%, #1a1a1a 100%);
-            position: relative;
-            overflow: hidden;
-        }
+    body,
+    button,
+    html {
+      font-family: "Cera Pro", sans-serif
+    }
 
-        .hero::before {
-            content: '';
-            position: absolute;
-            width: 200vw;
-            height: 200vh;
-            background: radial-gradient(circle, rgba(0,255,136,0.1) 0%, transparent 70%);
-            animation: pulse 8s infinite;
-        }
+    a {
+      text-decoration: none;
+      color: #000
+    }
 
-        /* Animated Grid Background */
-        .grid-pattern {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            background-image: linear-gradient(var(--surface) 1px, transparent 1px),
-                            linear-gradient(90deg, var(--surface) 1px, transparent 1px);
-            background-size: 40px 40px;
-            opacity: 0.1;
-            z-index: -1;
-        }
+    .choice {
+      border-radius: 1rem;
+      border: .125rem solid #000;
+      padding: 1rem
+    }
 
-        /* Subject Cards */
-        .subject-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            padding: 2rem;
-            max-width: 1600px;
-            margin: 0 auto;
-        }
+    .choice:hover {
+      background-color: #f0f0f0
+    }
 
-        .subject-card {
-            background: var(--surface);
-            border-radius: 1rem;
-            padding: 2rem;
-            transition: var(--transition);
-            position: relative;
-            overflow: hidden;
-        }
+    .navChoice {
+      color: limegreen
+    }
 
-        .subject-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0,255,136,0.1);
-        }
+    .navChoice:hover {
+      text-decoration: underline
+    }
 
-        .subject-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(
-                90deg,
-                transparent,
-                rgba(0,255,136,0.1),
-                transparent
-            );
-            transition: 0.5s;
-        }
+    .question {
+      border-radius: 1rem;
+      border: .125rem solid #000;
+      padding: 0;
+      display: flex;
+      margin-bottom: 1rem
+    }
 
-        .subject-card:hover::before {
-            left: 100%;
-        }
+    .question p {
+      margin: 0
+    }
 
-        /* Progress Bars */
-        .progress-bar {
-            height: 8px;
-            background: rgba(255,255,255,0.1);
-            border-radius: 4px;
-            overflow: hidden;
-        }
+    .question h2 {
+      margin-top: 0
+    }
 
-        .progress-fill {
-            height: 100%;
-            background: var(--primary);
-            width: 75%;
-            transition: width 0.5s ease;
-        }
+    .questionLeft {
+      width: 95%;
+      padding: 1rem
+    }
 
-        /* Animations */
-        @keyframes pulse {
-            0% { transform: translate(-50%, -50%) scale(1); }
-            50% { transform: translate(-50%, -50%) scale(1.1); }
-            100% { transform: translate(-50%, -50%) scale(1); }
-        }
+    .questionInfo {
+      display: flex
+    }
 
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-20px); }
-        }
+    .questionRight {
+      flex-grow: 1;
+      background-color: #f0f0f0;
+      padding: 1rem;
+      border-radius: 0 1rem 1rem 0
+    }
 
-        /* Dark/Light Toggle */
-        .theme-toggle {
-            position: fixed;
-            top: 2rem;
-            right: 2rem;
-            background: var(--surface);
-            border: none;
-            padding: 1rem;
-            border-radius: 50%;
-            cursor: pointer;
-            transition: var(--transition);
-        }
+    .markscheme {
+      margin: auto;
+      max-width: 1600px
+    }
 
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .subject-grid {
-                grid-template-columns: 1fr;
-            }
-        }
+    .marks {
+      position: relative;
+      float: right;
+      top: -1.3rem
+    }
 
-        /* 3D Effects */
-        .card-3d {
-            transform-style: preserve-3d;
-            perspective: 1000px;
-        }
+    .marks::before {
+      content: "["
+    }
 
-        .card-3d:hover {
-            transform: rotateY(10deg) rotateX(10deg);
-        }
-    </style>
+    .marks::after {
+      content: "]"
+    }
+
+    .calculator {
+      border-radius: 1rem;
+      margin: 0 1rem;
+      padding: .25rem
+    }
+
+    .calculatorAllowed {
+      background-color: limegreen
+    }
+
+    .calculatorNotAllowed {
+      background-color: red
+    }
+
+    .homepageButton:hover {
+      box-shadow: 3px 3px 5px
+    }
+  </style>
 </head>
+
 <body>
-    <div class="cursor"></div>
-    <div class="grid-pattern"></div>
-
-    <button class="theme-toggle">
-        <i class="fas fa-moon"></i>
-    </button>
-
-    <section class="hero">
-        <h1 class="hero-title" data-aos="fade-up">IB Hub</h1>
-        <p class="hero-subtitle" data-aos="fade-up" data-aos-delay="200">by Luke Yoon</p>
-        
-        <div class="stats-grid" data-aos="fade-up" data-aos-delay="400">
-            <div class="stat-card">
-                <h3>Subjects</h3>
-                <span class="stat-number">12+</span>
-            </div>
-            <div class="stat-card">
-                <h3>Questions</h3>
-                <span class="stat-number">5k+</span>
-            </div>
-            <div class="stat-card">
-                <h3>Active Users</h3>
-                <span class="stat-number" id="userCount">1.2k+</span>
-            </div>
-        </div>
-    </section>
-
-    <main class="subject-grid">
-        <!-- Subject Cards -->
-        <article class="subject-card card-3d" data-aos="zoom-in">
-            <h2>Economics</h2>
-            <div class="progress-bar">
-                <div class="progress-fill" data-progress="85"></div>
-            </div>
-            <div class="subject-meta">
-                <span><i class="fas fa-book"></i> 45 Topics</span>
-                <span><i class="fas fa-file-alt"></i> 300 Questions</span>
-            </div>
-        </article>
-
-        <!-- Repeat for other subjects -->
-    </main>
-
-    <!-- Particle Animation -->
-    <canvas id="particle-canvas"></canvas>
-
-    <script>
-        // Custom Cursor
-        const cursor = document.querySelector('.cursor');
-        document.addEventListener('mousemove', e => {
-            cursor.style.left = e.clientX + 'px';
-            cursor.style.top = e.clientY + 'px';
-        });
-
-        // Hover Effects
-        document.querySelectorAll('a, button').forEach(el => {
-            el.addEventListener('mouseenter', () => cursor.classList.add('cursor-active'));
-            el.addEventListener('mouseleave', () => cursor.classList.remove('cursor-active'));
-        });
-
-        // Theme Toggle
-        const themeToggle = document.querySelector('.theme-toggle');
-        themeToggle.addEventListener('click', () => {
-            document.documentElement.setAttribute('data-theme',
-                document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark'
-            );
-        });
-
-        // Particle Animation
-        const canvas = document.getElementById('particle-canvas');
-        const ctx = canvas.getContext('2d');
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
-
-        class Particle {
-            constructor() {
-                this.reset();
-            }
-
-            reset() {
-                this.x = Math.random() * canvas.width;
-                this.y = Math.random() * canvas.height;
-                this.velocity = Math.random() * 0.5 + 0.5;
-                this.size = Math.random() * 2 + 1;
-                this.alpha = Math.random() * 0.5 + 0.5;
-            }
-
-            update() {
-                this.y -= this.velocity;
-                if (this.y < 0) this.reset();
-            }
-
-            draw() {
-                ctx.fillStyle = `rgba(0, 255, 136, ${this.alpha})`;
-                ctx.beginPath();
-                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-                ctx.fill();
-            }
-        }
-
-        const particles = Array(100).fill().map(() => new Particle());
-        
-        function animate() {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            particles.forEach(particle => {
-                particle.update();
-                particle.draw();
-            });
-            requestAnimationFrame(animate);
-        }
-        animate();
-
-        // Dynamic User Counter
-        setInterval(() => {
-            const countElement = document.getElementById('userCount');
-            const current = parseInt(countElement.textContent);
-            countElement.textContent = `${Math.floor(current + (Math.random() * 10))}+`;
-        }, 3000);
-    </script>
-
-    <!-- External Libraries -->
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-        AOS.init({
-            duration: 1000,
-            once: true,
-            easing: 'ease-in-out'
-        });
-    </script>
+  <h1 id="navBar" style="margin: 0;"></h1>
+  <div id="mainContent" style="margin: auto; min-height: 100vh;">
+    <div style="text-align: center; min-height: 100vh;">
+      <h1>IB Hub by Luke Yoon</h1>
+      <!--<h2><a href="./warning.html" target="_self" class="homepageButton" style="background-color: #D1FFBD; padding: 0.75rem; border-radius: 0.8rem;">Enter New Version (ads)</a></h2><i>Only updated for: Econ, BM, ESS, English.</i><br>
+      <br><p>Notice: The new site is down at the moment. It will be back soon. Appreciate your patience.</p>--><br><br>
+      <h2><a href="#app" class="homepageButton" style="background-color: limegreen; padding: 0.75rem; border-radius: 0.8rem;">Enter</a></h2>
+      <br><br><br>
+      <!--<h2><a href="https://pirateib.net" class="homepageButton" style="background-color: orange; padding: 0.75rem; border-radius: 0.8rem;">M24 exam pack, Notes Compilation & more!</a></h2>
+      <h2><a href="https://smearchive.pages.dev" target="_blank" class="homepageButton" style="background-color: red; padding: 0.75rem; border-radius: 0.8rem;">SaveMyExams just released!</a></h2>-->
+      <h4><a href="https://github.com/luke0514/" target="_blank" class="homepageButton" style="background-color: #D1FFBD; color: black; padding: 0.75rem; border-radius: 0.8rem;">My GitHub Page:</a></h4>
+      <br><hr><br>
+      <h4><a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" class="homepageButton" style="background-color: #e82163; color: white; padding: 0.75rem; border-radius: 0.8rem;">Click it if you dare:</a></h4>
+      <h4><a href="https://discord.gg/8YcBVKyG" target="_blank" class="homepageButton" style="background-color: #0088cc; color: white; padding: 0.75rem; border-radius: 0.8rem;">Join Discord</a></h4>
+    </div>
+  </div>
+  <script src="./assets/main.js"></script>
 </body>
+
 </html>
