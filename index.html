@@ -1,201 +1,235 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>IB Hub – Ultimate Revision Platform</title>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" />
-  <style>
-    :root {
-      --primary: #00C853;
-      --primary-dark: #009933;
-      --background: #f8fafc;
-      --surface: #ffffff;
-      --text: #1a1a1a;
-      --border: #e2e8f0;
-      --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-      --radius: 1rem;
-      --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    }
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IB Hub - Ultimate Revision Platform</title>
 
-    body {
-      margin: 0;
-      background: var(--background);
-      color: var(--text);
-      font-family: 'Inter', sans-serif;
-      line-height: 1.6;
-    }
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-MZR8CD854N"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-MZR8CD854N');
+    </script>
 
-    header {
-      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-      color: white;
-      text-align: center;
-      padding: 2rem 1rem;
-      box-shadow: var(--shadow);
-    }
+    <style>
+        /* ===== Core Design System ===== */
+        :root {
+            --primary: #00C853;
+            --primary-dark: #009933;
+            --background: #f8fafc;
+            --surface: #ffffff;
+            --text: #1a1a1a;
+            --border: #e2e8f0;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            --radius: 1rem;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
 
-    header h1 {
-      margin: 0;
-      font-size: 2.5rem;
-    }
+        /* ===== Typography ===== */
+        @font-face {
+            font-family: 'Cera Pro';
+            src: url(./assets/CeraPro.ttf) format('truetype');
+            font-weight: 400;
+            font-style: normal;
+        }
 
-    main {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 2rem 1rem;
-    }
+        @font-face {
+            font-family: 'Cera Pro';
+            src: url(./assets/CeraProMedium.otf) format('opentype');
+            font-weight: 500;
+            font-style: normal;
+        }
 
-    .hero {
-      text-align: center;
-      padding: 4rem 1rem;
-    }
+        @font-face {
+            font-family: 'Cera Pro';
+            src: url(./assets/CeraProBold.otf) format('opentype');
+            font-weight: 700;
+            font-style: normal;
+        }
 
-    .hero h2 {
-      font-size: 2rem;
-      margin-bottom: 1rem;
-    }
+        body {
+            margin: 0;
+            background: var(--background);
+            color: var(--text);
+            font-family: 'Cera Pro', sans-serif;
+            line-height: 1.6;
+        }
 
-    .hero p {
-      font-size: 1.2rem;
-      color: #555;
-      max-width: 700px;
-      margin: 0 auto 2rem;
-    }
+        /* ===== Navigation Bar ===== */
+        #navBar {
+            padding: 1.5rem 2rem;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            text-align: center;
+            font-size: 1.75rem;
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
 
-    .buttons {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 1rem;
-    }
+        /* ===== Main Content Area ===== */
+        #mainContent {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+            min-height: 100vh;
+        }
 
-    .button {
-      display: inline-block;
-      padding: 1rem 2rem;
-      border-radius: var(--radius);
-      background: var(--primary);
-      color: white;
-      text-decoration: none;
-      font-weight: 600;
-      transition: var(--transition);
-    }
+        /* ===== Interactive Elements ===== */
+        .homepageButton {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 1.25rem 2.5rem;
+            margin: 1rem;
+            border-radius: var(--radius);
+            background: var(--primary);
+            color: white !important;
+            text-decoration: none;
+            transition: var(--transition);
+            box-shadow: var(--shadow);
+            border: 2px solid transparent;
+            font-weight: 500;
+        }
 
-    .button:hover {
-      background: var(--primary-dark);
-      transform: translateY(-2px);
-      box-shadow: var(--shadow);
-    }
+        .homepageButton:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.15);
+            background: var(--primary-dark);
+        }
 
-    .papers-section {
-      margin-top: 4rem;
-      text-align: center;
-    }
+        /* ===== Question Display System ===== */
+        .question {
+            border-radius: var(--radius);
+            border: 2px solid var(--border);
+            margin: 2rem 0;
+            background: var(--surface);
+            transition: var(--transition);
+            display: flex;
+            overflow: hidden;
+        }
 
-    .papers-section h3 {
-      font-size: 1.5rem;
-      margin-bottom: 1rem;
-    }
+        .question:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow);
+        }
 
-    .papers-list {
-      list-style: none;
-      padding: 0;
-      margin: 0 auto;
-      max-width: 600px;
-      text-align: left;
-    }
+        .questionLeft {
+            flex: 1;
+            padding: 2rem;
+            border-right: 2px solid var(--border);
+        }
 
-    .papers-list li {
-      margin-bottom: 0.5rem;
-    }
+        .questionRight {
+            width: 200px;
+            padding: 2rem;
+            background: #f8fafc;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+        }
 
-    .papers-list a {
-      color: var(--primary-dark);
-      text-decoration: none;
-    }
+        .marks {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            position: relative;
+        }
 
-    .papers-list a:hover {
-      text-decoration: underline;
-    }
+        .marks::before,
+        .marks::after {
+            color: var(--text);
+            opacity: 0.5;
+        }
 
-    footer {
-      margin-top: 4rem;
-      padding: 2rem 1rem;
-      background: #f1f5f9;
-      text-align: center;
-      border-top: 1px solid var(--border);
-    }
+        .calculator {
+            padding: 0.5rem 1.25rem;
+            border-radius: 2rem;
+            font-size: 0.9rem;
+            font-weight: 500;
+            text-transform: uppercase;
+        }
 
-    footer a {
-      margin: 0 1rem;
-      color: var(--primary-dark);
-      text-decoration: none;
-    }
+        .calculatorAllowed {
+            background: var(--primary);
+            color: white;
+        }
 
-    footer a:hover {
-      text-decoration: underline;
-    }
+        .calculatorNotAllowed {
+            background: #ef4444;
+            color: white;
+        }
 
-    @media (max-width: 600px) {
-      .hero h2 {
-        font-size: 1.5rem;
-      }
+        /* ===== Social Links Section ===== */
+        .social-section {
+            margin-top: 4rem;
+            padding-top: 3rem;
+            border-top: 2px solid var(--border);
+        }
 
-      .hero p {
-        font-size: 1rem;
-      }
-    }
-  </style>
+        .social-section h4 {
+            margin: 1.5rem 0;
+        }
+
+        /* ===== Responsive Design ===== */
+        @media (max-width: 768px) {
+            .question {
+                flex-direction: column;
+            }
+
+            .questionRight {
+                width: 100%;
+                border-top: 2px solid var(--border);
+                border-right: none;
+            }
+        }
+    </style>
 </head>
+
 <body>
+    <!-- Original Structure Preserved -->
+    <h1 id="navBar" style="margin: 0;">IB Hub by Luke Yoon</h1>
+    
+    <div id="mainContent">
+        <div style="text-align: center; min-height: 100vh;">
+            <!-- Hero Section -->
+            <div style="padding: 4rem 1rem;">
+                <h1 style="font-size: 2.5rem; margin-bottom: 1.5rem;">Master the IB Diploma</h1>
+                <p style="font-size: 1.2rem; color: #666; max-width: 800px; margin: 0 auto;">
+                    1000+ exam-style questions with detailed mark schemes<br>
+                    Completely free • No login required • Open source
+                </p>
+                <h2 style="margin: 3rem 0;">
+                    <a href="#app" class="homepageButton">
+                        🚀 Start Practicing Now
+                    </a>
+                </h2>
+            </div>
 
-  <header>
-    <h1>IB Hub by Luke Yoon</h1>
-  </header>
+            <!-- Social Links -->
+            <div class="social-section">
+                <h4>
+                    <a href="https://github.com/luke0514/" target="_blank" class="homepageButton" 
+                       style="background: #2d3436;">
+                        <i class="fab fa-github"></i> GitHub Repository
+                    </a>
+                </h4>
+                <h4>
+                    <a href="https://discord.gg/8YcBVKyG" target="_blank" class="homepageButton" 
+                       style="background: #5865F2;">
+                        <i class="fab fa-discord"></i> Study Community
+                    </a>
+                </h4>
+            </div>
+        </div>
+    </div>
 
-  <main>
-    <section class="hero">
-      <h2>Master the IB Diploma</h2>
-      <p>1000+ exam-style questions with detailed mark schemes<br>
-         Completely free • No login required • Open source</p>
-      <div class="buttons">
-        <a href="#app" class="button">🚀 Start Practicing Now</a>
-        <a href="#papers" class="button">📚 View Past Papers</a>
-      </div>
-    </section>
-
-    <section id="papers" class="papers-section">
-      <h3>Past Papers Collection</h3>
-      <ul class="papers-list" id="papers-list">
-        <!-- JavaScript will populate this list -->
-      </ul>
-    </section>
-  </main>
-
-  <footer>
-    <a href="https://github.com/luke0514/" target="_blank">GitHub Repository</a>
-    <a href="https://discord.gg/8YcBVKyG" target="_blank">Study Community</a>
-  </footer>
-
-  <script>
-    // Dynamically list all files in the assets/papers directory
-    fetch('./assets/papers/')
-      .then(response => response.text())
-      .then(data => {
-        const parser = new DOMParser();
-        const htmlDoc = parser.parseFromString(data, 'text/html');
-        const links = htmlDoc.querySelectorAll('a');
-        const papersList = document.getElementById('papers-list');
-
-        links.forEach(link => {
-          const href = link.getAttribute('href');
-          if (href && href.match(/\.(pdf|docx?|xlsx?|pptx?)$/i)) {
-            const listItem = document.createElement('li');
-            const fileLink = document.createElement('a');
-            fileLink.href = './assets/papers/' + href;
-            fileLink.textContent = href;
-            fileLink.target = '_blank';
-            listItem.appendChild(fileLink);
-            papersList.appendChild(listItem);
-         
-::contentReference[oaicite:0]{index=0}
- 
+    <script src="./assets/main.js"></script>
+</body>
+</html>
