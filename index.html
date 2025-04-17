@@ -2,279 +2,195 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IB Hub - Ultimate Revision Platform</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IB Hub - Ultimate Revision Platform</title>
 
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-MZR8CD854N"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-MZR8CD854N');
-    </script>
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-MZR8CD854N"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}    
+    gtag('js', new Date());
+    gtag('config', 'G-MZR8CD854N');
+  </script>
 
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Cera+Pro:ital,wght@0,400;0,500;0,700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Cera+Pro:ital,wght@0,400;0,500;0,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-    <style>
-        :root {
-            --primary: #00C853;
-            --primary-dark: #009933;
-            --background: #f8fafc;
-            --surface: #ffffff;
-            --text: #1a1a1a;
-            --border: #e2e8f0;
-            --shadow: 0 6px 18px rgba(0,0,0,0.1);
-            --radius: 1rem;
-            --transition: 0.3s ease;
-        }
+  <style>
+    :root {
+      --primary: #00C853;
+      --primary-dark: #009933;
+      --dark-bg: #121212;
+      --card-bg: #ffffff;
+      --text-light: #e0e0e0;
+      --text-dark: #1a1a1a;
+      --shadow: 0 6px 18px rgba(0,0,0,0.3);
+      --radius: 1rem;
+      --transition: 0.3s ease;
+    }
 
-        *, *::before, *::after {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-        body {
-            font-family: 'Cera Pro', sans-serif;
-            background: var(--background);
-            color: var(--text);
-            line-height: 1.6;
-            scroll-behavior: smooth;
-        }
+    body {
+      background: var(--dark-bg);
+      color: var(--text-light);
+      font-family: 'Cera Pro', sans-serif;
+      line-height: 1.6;
+      scroll-behavior: smooth;
+    }
 
-        #navBar {
-            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-            color: #fff;
-            text-align: center;
-            padding: 1.5rem 1rem;
-            font-size: 1.75rem;
-            font-weight: 700;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            box-shadow: var(--shadow);
-        }
+    /* Navbar */
+    #navBar {
+      background: #1f1f1f;
+      color: var(--text-light);
+      text-align: center;
+      padding: 1.5rem;
+      font-size: 1.75rem;
+      font-weight: 700;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: var(--shadow);
+    }
 
-        /* Hero Section */
-        .hero {
-            padding: 5rem 1rem;
-            text-align: center;
-            background: var(--surface);
-            border-radius: var(--radius) var(--radius) 0 0;
-            box-shadow: var(--shadow);
-            margin-bottom: 2rem;
-        }
-        .hero h1 {
-            font-size: 3rem;
-            background: linear-gradient(90deg, var(--primary), #66ffcc);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            margin-bottom: 1rem;
-        }
-        .hero p {
-            font-size: 1.2rem;
-            color: #555;
-            max-width: 700px;
-            margin: 0 auto 2rem;
-        }
-        .btn-primary {
-            display: inline-block;
-            padding: 1rem 2rem;
-            background: var(--primary);
-            color: #fff;
-            border-radius: var(--radius);
-            text-decoration: none;
-            font-weight: 500;
-            transition: var(--transition);
-            box-shadow: var(--shadow);
-        }
-        .btn-primary:hover {
-            background: var(--primary-dark);
-            transform: translateY(-3px);
-        }
+    /* Hero Section */
+    .hero {
+      text-align: center;
+      padding: 5rem 1rem;
+    }
+    .hero h1 {
+      font-size: 3rem;
+      background: linear-gradient(90deg, var(--primary), var(--primary-dark));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 1rem;
+    }
+    .hero p {
+      font-size: 1.2rem;
+      color: var(--text-light);
+      max-width: 700px;
+      margin: 0 auto 2rem;
+    }
+    .btn-primary {
+      display: inline-block;
+      padding: 1rem 2rem;
+      background: var(--primary);
+      color: var(--text-dark);
+      border-radius: var(--radius);
+      text-decoration: none;
+      font-weight: 500;
+      transition: var(--transition);
+      box-shadow: var(--shadow);
+    }
+    .btn-primary:hover {
+      background: var(--primary-dark);
+      transform: translateY(-2px);
+    }
 
-        /* App Section */
-        #app {
-            max-width: 1200px;
-            margin: 0 auto 4rem;
-            padding: 0 1rem;
-        }
-        #app h2 {
-            text-align: center;
-            font-size: 2rem;
-            margin-bottom: 2rem;
-        }
-        .subject-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
-            gap: 1rem;
-        }
-        .subject-card {
-            background: var(--surface);
-            border-radius: var(--radius);
-            padding: 2rem;
-            text-align: center;
-            box-shadow: var(--shadow);
-            transition: var(--transition);
-        }
-        .subject-card:hover {
-            transform: translateY(-5px);
-            border: 2px solid var(--primary);
-        }
-        .subject-card a {
-            font-size: 1.1rem;
-            font-weight: 500;
-            color: var(--text);
-        }
+    /* Question Card (Light Mode) */
+    .question-card {
+      background: var(--card-bg);
+      color: var(--text-dark);
+      max-width: 800px;
+      margin: 2rem auto;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+    .question-header {
+      background: var(--primary);
+      color: var(--card-bg);
+      padding: 1rem 2rem;
+      font-size: 1.25rem;
+      font-weight: 600;
+    }
+    .question-body {
+      padding: 2rem;
+    }
+    .question-body ol[type="a"] {
+      list-style: lower-alpha inside;
+      margin-bottom: 1rem;
+    }
+    .question-body ol[type="i"] {
+      list-style: lower-roman inside;
+      margin-top: 0.5rem;
+    }
+    .question-body li {
+      margin-bottom: 0.75rem;
+    }
 
-        /* Question Preview */
-        .question {
-            background: var(--surface);
-            border-radius: var(--radius);
-            margin: 2rem auto;
-            max-width: 800px;
-            box-shadow: var(--shadow);
-            overflow: hidden;
-            transition: var(--transition);
-            display: flex;
-        }
-        .question:hover {
-            transform: translateY(-3px);
-        }
-        .questionLeft {
-            flex: 1;
-            padding: 2rem;
-        }
-        .questionLeft h3 {
-            margin-bottom: 1rem;
-            font-size: 1.5rem;
-        }
-        .questionLeft ol {
-            padding-left: 1.25rem;
-            margin-top: 1rem;
-        }
-        .questionLeft ol[type="a"] > li {
-            margin-bottom: 1rem;
-        }
-        .questionLeft ol[type="i"] > li {
-            margin-bottom: 0.5rem;
-            font-style: italic;
-        }
-        .questionRight {
-            width: 180px;
-            background: var(--background);
-            padding: 2rem;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-        }
-        .marks {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--primary);
-            margin-bottom: 1rem;
-        }
-        .calculator {
-            padding: 0.5rem 1rem;
-            border-radius: 2rem;
-            font-weight: 500;
-            text-transform: uppercase;
-        }
-        .calculatorAllowed {
-            background: var(--primary);
-            color: #fff;
-        }
-        .calculatorNotAllowed {
-            background: #ef4444;
-            color: #fff;
-        }
+    /* Social Section */
+    .social-section {
+      text-align: center;
+      margin: 4rem 0 2rem;
+    }
+    .social-section a {
+      display: inline-block;
+      margin: 0.5rem;
+      padding: 0.75rem 1.5rem;
+      background: var(--primary);
+      color: var(--card-bg);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+      text-decoration: none;
+      font-weight: 500;
+    }
+    .social-section a:hover {
+      background: var(--primary-dark);
+      transform: translateY(-2px);
+    }
 
-        /* Social Section */
-        .social-section {
-            text-align: center;
-            margin-top: 4rem;
-        }
-        .social-section a {
-            display: inline-block;
-            margin: 0 0.5rem;
-            padding: 0.75rem 1.5rem;
-            background: var(--surface);
-            color: var(--text);
-            border-radius: var(--radius);
-            box-shadow: var(--shadow);
-            transition: var(--transition);
-        }
-        .social-section a:hover {
-            transform: translateY(-3px);
-            background: var(--primary);
-            color: #fff;
-        }
-
-        @media (max-width: 768px) {
-            .question {
-                flex-direction: column;
-            }
-            .questionRight {
-                width: 100%;
-                padding: 1rem;
-            }
-        }
-    </style>
+    @media (max-width: 600px) {
+      .hero h1 { font-size: 2.25rem; }
+      .hero p { font-size: 1rem; }
+      .question-body { padding: 1rem; }
+    }
+  </style>
 </head>
 
 <body>
-    <header id="navBar">IB Hub by Luke Yoon</header>
+  <header id="navBar">IB Hub by Luke Yoon</header>
 
-    <main id="mainContent">
-        <section class="hero">
-            <h1>Master the IB Diploma</h1>
-            <p>1000+ exam-style questions with detailed mark schemes.<br>Completely free • No login required • Open source</p>
-            <a href="#app" class="btn-primary">🚀 Start Practicing Now</a>
-        </section>
+  <main>
+    <section class="hero">
+      <h1>Master the IB Diploma</h1>
+      <p>1000+ exam-style questions with detailed mark schemes.<br>Completely free • No login required • Open source</p>
+      <a href="#question" class="btn-primary">🚀 Start Practicing Now</a>
+    </section>
 
-        <section id="app">
-            <h2>Choose a Subject to Practice</h2>
-            <div class="subject-grid">
-                <div class="subject-card"><a href="questions.html?subject=MathSL">Mathematics SL</a></div>
-                <div class="subject-card"><a href="questions.html?subject=PhysicsHL">Physics HL</a></div>
-                <div class="subject-card"><a href="questions.html?subject=BiologyHL">Biology HL</a></div>
-                <div class="subject-card"><a href="questions.html?subject=ChemistryHL">Chemistry HL</a></div>
-            </div>
-        </section>
+    <!-- Question in Light Mode -->
+    <section id="question" class="question-card">
+      <div class="question-header">Question 1</div>
+      <div class="question-body">
+        <ol type="a">
+          <li>
+            Describe the structure of DNA.
+            <ol type="i">
+              <li>Include the type of bond between base pairs.</li>
+              <li>Mention the overall shape of the molecule.</li>
+            </ol>
+          </li>
+          <li>Explain the process of DNA replication.</li>
+          <li>Compare prokaryotic and eukaryotic DNA.</li>
+        </ol>
+      </div>
+    </section>
 
-        <!-- Preview Question -->
-        <div class="question">
-            <div class="questionLeft">
-                <h3>Sample Question</h3>
-                <ol type="a">
-                    <li>
-                        Describe the structure of DNA.
-                        <ol type="i">
-                            <li>Include the type of bond between base pairs.</li>
-                            <li>Mention the overall shape of the molecule.</li>
-                        </ol>
-                    </li>
-                    <li>Explain the process of DNA replication.</li>
-                    <li>Compare prokaryotic and eukaryotic DNA.</li>
-                </ol>
-            </div>
-            <div class="questionRight">
-                <div class="marks">10 Marks</div>
-                <div class="calculator calculatorAllowed">Calculator Allowed</div>
-            </div>
-        </div>
+    <section class="social-section">
+      <a href="https://github.com/luke0514/" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+      <a href="https://discord.gg/8YcBVKyG" target="_blank"><i class="fab fa-discord"></i> Discord</a>
+    </section>
+  </main>
 
-        <section class="social-section">
-            <a href="https://github.com/luke0514/" target="_blank"> <i class="fab fa-github"></i> GitHub</a>
-            <a href="https://discord.gg/8YcBVKyG" target="_blank"><i class="fab fa-discord"></i> Discord</a>
-        </section>
-    </main>
-
-    <script src="./assets/main.js"></script>
+  <script src="./assets/main.js"></script>
 </body>
+
 </html>
