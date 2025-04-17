@@ -1,161 +1,122 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>IB Hub - Ultimate Revision Platform</title>
 
   <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-MZR8CD854N"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}  
-    gtag('js', new Date());
-    gtag('config', 'G-MZR8CD854N');
+    function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-MZR8CD854N');
   </script>
 
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+  <!-- Fonts & Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet" />
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 
   <style>
+    /* Theme Variables */
     :root {
       --primary: #00ff88;
       --primary-dark: #00cc66;
-      --background: #ffffff;
-      --text: #1a1a1a;
-      --border: #e2e8f0;
-      --shadow: 0 4px 12px rgba(0,0,0,0.1);
+      --bg-light: #ffffff;
+      --bg-dark: #121212;
+      --text-light: #1a1a1a;
+      --text-dark: #e0e0e0;
+      --border-light: #e2e8f0;
+      --border-dark: #2a2a2a;
+      --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
       --radius: 0.75rem;
       --transition: all 0.3s ease;
+      --font: 'Inter', sans-serif;
+    }
+    /* Light theme */
+    [data-theme="light"] {
+      --bg: var(--bg-light);
+      --text: var(--text-light);
+      --border: var(--border-light);
+    }
+    /* Dark theme */
+    [data-theme="dark"] {
+      --bg: var(--bg-dark);
+      --text: var(--text-dark);
+      --border: var(--border-dark);
     }
 
-    /* Reset */
-    *, *::before, *::after {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      background: var(--background);
-      color: var(--text);
-      font-family: 'Inter', sans-serif;
-      line-height: 1.6;
-      scroll-behavior: smooth;
-    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: var(--bg); color: var(--text); font-family: var(--font); line-height: 1.6; scroll-behavior: smooth; }
+    a { text-decoration: none; color: var(--text); }
 
     /* Navbar */
     #navBar {
-      background: var(--primary);
-      color: #fff;
-      text-align: center;
-      padding: 1rem;
-      font-size: 1.5rem;
-      font-weight: 700;
-      position: sticky;
-      top: 0;
-      z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      background: var(--primary); padding: 1rem 1.5rem;
+      position: sticky; top: 0; z-index: 100;
       box-shadow: var(--shadow);
     }
+    #navBar h1 { font-size: 1.5rem; color: #fff; }
+    #theme-toggle {
+      background: transparent; border: none; color: #fff;
+      font-size: 1.25rem; cursor: pointer; transition: var(--transition);
+    }
+    #theme-toggle:hover { transform: scale(1.1); }
 
     /* Hero Section */
     .hero {
-      padding: 4rem 1rem;
-      text-align: center;
-    }
-    .hero h1 {
-      font-size: 2.5rem;
-      background: linear-gradient(90deg, var(--primary), var(--primary-dark));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      margin-bottom: 0.5rem;
-    }
-    .hero p {
-      color: #555;
-      font-size: 1.1rem;
-      margin-bottom: 2rem;
-      max-width: 700px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-    .btn-primary {
-      display: inline-block;
-      background: var(--primary);
+      text-align: center; padding: 4rem 1rem;
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
       color: #fff;
-      padding: 0.75rem 1.5rem;
-      border: none;
-      border-radius: var(--radius);
-      font-size: 1rem;
-      font-weight: 500;
-      text-decoration: none;
-      transition: var(--transition);
-      box-shadow: var(--shadow);
-      cursor: pointer;
     }
-    .btn-primary:hover {
-      background: var(--primary-dark);
-      transform: translateY(-2px);
+    .hero h1 { font-size: 2.75rem; margin-bottom: 0.5rem; }
+    .hero p { font-size: 1.1rem; margin-bottom: 2rem; max-width: 700px; margin-left: auto; margin-right: auto; }
+    .btn-primary {
+      background: #fff; color: var(--primary-dark);
+      padding: 0.75rem 1.5rem; border-radius: var(--radius);
+      font-weight: 500; transition: var(--transition); box-shadow: var(--shadow);
     }
+    .btn-primary:hover { background: var(--primary-dark); color: #fff; transform: translateY(-2px); }
 
     /* Question Card */
     .question-card {
-      background: var(--background);
-      border: 1px solid var(--border);
+      background: var(--bg); border: 1px solid var(--border);
       border-radius: var(--radius);
-      max-width: 800px;
-      margin: 2rem auto;
-      box-shadow: var(--shadow);
-      overflow: hidden;
+      max-width: 800px; margin: 2rem auto; overflow: hidden;
+      box-shadow: var(--shadow); transition: var(--transition);
     }
+    .question-card:hover { transform: translateY(-3px); }
     .question-header {
-      background: var(--primary-dark);
-      color: #fff;
-      padding: 1rem 1.5rem;
-      font-size: 1.25rem;
-      font-weight: 600;
+      background: var(--primary-dark); color: #fff;
+      padding: 1rem 1.5rem; font-size: 1.25rem; font-weight: 600;
     }
-    .question-body {
-      padding: 1.5rem;
-    }
-    .question-body ol[type="a"] {
-      list-style: lower-alpha outside;
-      margin-bottom: 1rem;
-    }
-    .question-body ol[type="i"] {
-      list-style: lower-roman outside;
-      margin-top: 0.5rem;
-      margin-left: 1rem;
-    }
-    .question-body li {
-      margin-bottom: 0.75rem;
-    }
+    .question-body { padding: 1.5rem; }
+    .question-body ol[type="a"] { list-style: lower-alpha outside; margin-bottom: 1rem; }
+    .question-body ol[type="i"] { list-style: lower-roman inside; margin-left: 1rem; margin-top: 0.5rem; }
+    .question-body li { margin-bottom: 0.75rem; }
 
     /* Social Links */
-    .social-section {
-      text-align: center;
-      margin: 3rem 0;
-    }
+    .social-section { text-align: center; margin: 3rem 0; }
     .social-section a {
-      margin: 0 0.5rem;
-      text-decoration: none;
-      color: var(--primary);
-      font-weight: 500;
+      margin: 0 0.5rem; padding: 0.5rem 1rem;
+      background: var(--primary); color: #fff;
+      border-radius: var(--radius); box-shadow: var(--shadow);
       transition: var(--transition);
     }
-    .social-section a:hover {
-      color: var(--primary-dark);
-    }
+    .social-section a:hover { background: var(--primary-dark); transform: translateY(-2px); }
 
     @media (max-width: 600px) {
       .hero h1 { font-size: 2rem; }
       .hero p { font-size: 1rem; }
-      .question-body { padding: 1rem; }
     }
   </style>
 </head>
 
 <body>
-  <header id="navBar">IB Hub by Luke Yoon</header>
+  <header id="navBar">
+    <h1>IB Hub by Luke Yoon</h1>
+    <button id="theme-toggle" aria-label="Toggle Theme"><i class="fas fa-moon"></i></button>
+  </header>
 
   <main>
     <section class="hero">
@@ -164,7 +125,7 @@
       <a href="#question" class="btn-primary">🚀 Start Studying</a>
     </section>
 
-    <!-- Question in Light Mode -->
+    <!-- Question -->
     <section id="question" class="question-card">
       <div class="question-header">Question 1</div>
       <div class="question-body">
@@ -188,6 +149,20 @@
     </section>
   </main>
 
-  <script src="./assets/main.js"></script>
+  <script>
+    // Theme Toggle
+    const toggle = document.getElementById('theme-toggle');
+    const html = document.documentElement;
+    const icon = toggle.querySelector('i');
+    const current = localStorage.getItem('theme') || 'light';
+    html.setAttribute('data-theme', current);
+    icon.className = current === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
+    toggle.addEventListener('click', () => {
+      const theme = html.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+      html.setAttribute('data-theme', theme);
+      localStorage.setItem('theme', theme);
+      icon.className = theme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
+    });
+  </script>
 </body>
 </html>
