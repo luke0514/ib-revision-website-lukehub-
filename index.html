@@ -9,7 +9,7 @@
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-MZR8CD854N"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
+    function gtag(){dataLayer.push(arguments);}    
     gtag('js', new Date());
     gtag('config', 'G-MZR8CD854N');
   </script>
@@ -20,9 +20,8 @@
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
 
-  <!-- Style -->
+  <!-- Styles -->
   <style>
-    /* ===== Base Variables ===== */
     :root {
       --primary: #00ff88;
       --primary-dark: #00cc66;
@@ -36,141 +35,109 @@
       --transition: 0.3s ease;
     }
 
-    /* ===== General Reset ===== */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    html, body { background:var(--bg); color:var(--text); font-family:'Inter', sans-serif; scroll-behavior:smooth; }
+    a { color:inherit; text-decoration:none; }
 
-    html, body {
-      background: var(--bg);
-      color: var(--text);
-      font-family: 'Inter', sans-serif;
-      scroll-behavior: smooth;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    /* ===== Navigation ===== */
     #navBar {
       background: linear-gradient(90deg, var(--primary), var(--primary-dark));
-      padding: 1.5rem 2rem;
-      font-size: 2rem;
-      font-weight: 700;
-      text-align: center;
-      box-shadow: var(--shadow);
-      position: sticky;
-      top: 0;
-      z-index: 999;
-      color: #0f0f0f;
+      padding:1.5rem 2rem; font-size:2rem; font-weight:700; text-align:center;
+      box-shadow:var(--shadow); position:sticky; top:0; z-index:999; color:#0f0f0f;
     }
 
-    /* ===== Hero Section ===== */
     .hero {
-      padding: 6rem 1rem;
-      text-align: center;
+      padding:6rem 1rem; text-align:center;
     }
-
     .hero h1 {
-      font-size: 3.5rem;
-      font-weight: 700;
-      background: linear-gradient(90deg, var(--primary), #66ffcc);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      margin-bottom: 1rem;
+      font-size:3.5rem; font-weight:700;
+      background:linear-gradient(90deg, var(--primary), #66ffcc);
+      -webkit-background-clip:text; -webkit-text-fill-color:transparent;
+      margin-bottom:1rem;
     }
-
     .hero p {
-      font-size: 1.25rem;
-      color: var(--secondary-text);
-      max-width: 700px;
-      margin: 0 auto;
+      font-size:1.25rem; color:var(--secondary-text);
+      max-width:700px; margin:0 auto;
     }
-
     .btn-glow {
-      display: inline-block;
-      margin-top: 2.5rem;
-      padding: 1rem 2rem;
-      border-radius: var(--radius);
-      background: var(--primary-dark);
-      color: #000;
-      font-weight: 600;
-      font-size: 1.1rem;
-      transition: var(--transition);
-      box-shadow: 0 0 15px var(--primary);
+      display:inline-block; margin-top:2.5rem; padding:1rem 2rem;
+      border-radius:var(--radius); background:var(--primary-dark); color:#000;
+      font-weight:600; font-size:1.1rem; transition:var(--transition);
+      box-shadow:0 0 15px var(--primary);
     }
-
     .btn-glow:hover {
-      transform: scale(1.05);
-      background: var(--primary);
-      box-shadow: 0 0 25px var(--primary);
+      transform:scale(1.05); background:var(--primary);
+      box-shadow:0 0 25px var(--primary);
     }
 
-    /* ===== Social Links ===== */
+    /* App Section */
+    #app {
+      padding:4rem 1rem; max-width:1000px; margin:0 auto;
+    }
+    #app h2 {
+      font-size:2rem; margin-bottom:1.5rem; text-align:center;
+    }
+    .subject-list {
+      display:grid; grid-template-columns:repeat(auto-fit, minmax(200px,1fr)); gap:1rem;
+    }
+    .subject-card {
+      background:var(--glass-bg); backdrop-filter:blur(10px);
+      border:1px solid var(--glass-border); padding:2rem; border-radius:var(--radius);
+      text-align:center; transition:var(--transition); box-shadow:var(--shadow);
+    }
+    .subject-card:hover {
+      transform:translateY(-5px); border-color:var(--primary);
+    }
+    .subject-card a {
+      color:var(--text); font-weight:600;
+    }
+
     .social-section {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 1.5rem;
-      margin: 4rem 0 2rem;
+      display:flex; justify-content:center; flex-wrap:wrap; gap:1.5rem; margin:4rem 0 2rem;
     }
-
     .social-btn {
-      background: var(--glass-bg);
-      border: 1px solid var(--glass-border);
-      backdrop-filter: blur(10px);
-      padding: 1rem 2rem;
-      border-radius: var(--radius);
-      font-weight: 600;
-      color: white;
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-      box-shadow: var(--shadow);
-      transition: var(--transition);
+      background:var(--glass-bg); border:1px solid var(--glass-border);
+      backdrop-filter:blur(10px); padding:1rem 2rem; border-radius:var(--radius);
+      font-weight:600; display:flex; align-items:center; gap:0.75rem;
+      box-shadow:var(--shadow); transition:var(--transition);
     }
+    .social-btn:hover { transform:translateY(-3px); background:var(--primary-dark); }
 
-    .social-btn:hover {
-      transform: translateY(-3px);
-      background: var(--primary-dark);
-    }
-
-    /* ===== Responsive ===== */
-    @media (max-width: 768px) {
-      .hero h1 {
-        font-size: 2.5rem;
-      }
-
-      .hero p {
-        font-size: 1.05rem;
-      }
+    @media (max-width:768px) {
+      .hero h1 { font-size:2.5rem; }
+      .hero p { font-size:1.05rem; }
     }
   </style>
 </head>
 <body>
   <header id="navBar">IB Hub by Luke Yoon</header>
 
-  <main class="hero">
+  <!-- Hero -->
+  <section class="hero" id="home">
     <h1>Master the IB Diploma</h1>
-    <p>
-      Over 1000+ exam-style questions with detailed mark schemes.<br>
-      Absolutely free • No login needed • 100% open source.
-    </p>
+    <p>Over 1000+ exam-style questions with detailed mark schemes.<br>Absolutely free • No login needed • 100% open source.</p>
     <a href="#app" class="btn-glow">🚀 Start Practicing Now</a>
 
-    <section class="social-section">
+    <div class="social-section">
       <a class="social-btn" href="https://github.com/luke0514/" target="_blank">
         <i class="fab fa-github"></i> GitHub Repository
       </a>
       <a class="social-btn" href="https://discord.gg/8YcBVKyG" target="_blank">
         <i class="fab fa-discord"></i> Study Community
       </a>
-    </section>
-  </main>
+    </div>
+  </section>
+
+  <!-- App: Choose Subject -->
+  <section id="app">
+    <h2>📑 Choose a Subject to Practice</h2>
+    <div class="subject-list">
+      <div class="subject-card"><a href="questions.html?subject=MathSL">Mathematics SL</a></div>
+      <div class="subject-card"><a href="questions.html?subject=PhysicsHL">Physics HL</a></div>
+      <div class="subject-card"><a href="questions.html?subject=BiologyHL">Biology HL</a></div>
+      <div class="subject-card"><a href="questions.html?subject=ChemistryHL">Chemistry HL</a></div>
+      <!-- Add more subjects as needed -->
+    </div>
+  </section>
 
   <script src="./assets/main.js"></script>
 </body>
