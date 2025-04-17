@@ -1,144 +1,280 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>IB Hub - Ultimate Revision Platform</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IB Hub - Ultimate Revision Platform</title>
 
-  <!-- Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-MZR8CD854N"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}    
-    gtag('js', new Date());
-    gtag('config', 'G-MZR8CD854N');
-  </script>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-MZR8CD854N"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-MZR8CD854N');
+    </script>
 
-  <!-- FontAwesome for icons -->
-  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Cera+Pro:ital,wght@0,400;0,500;0,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+    <style>
+        :root {
+            --primary: #00C853;
+            --primary-dark: #009933;
+            --background: #f8fafc;
+            --surface: #ffffff;
+            --text: #1a1a1a;
+            --border: #e2e8f0;
+            --shadow: 0 6px 18px rgba(0,0,0,0.1);
+            --radius: 1rem;
+            --transition: 0.3s ease;
+        }
 
-  <!-- Styles -->
-  <style>
-    :root {
-      --primary: #00ff88;
-      --primary-dark: #00cc66;
-      --bg: #0f0f0f;
-      --glass-bg: rgba(255, 255, 255, 0.05);
-      --glass-border: rgba(255, 255, 255, 0.15);
-      --text: #f4f4f4;
-      --secondary-text: #c5c5c5;
-      --shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
-      --radius: 1rem;
-      --transition: 0.3s ease;
-    }
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    * { margin:0; padding:0; box-sizing:border-box; }
-    html, body { background:var(--bg); color:var(--text); font-family:'Inter', sans-serif; scroll-behavior:smooth; }
-    a { color:inherit; text-decoration:none; }
+        body {
+            font-family: 'Cera Pro', sans-serif;
+            background: var(--background);
+            color: var(--text);
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
 
-    #navBar {
-      background: linear-gradient(90deg, var(--primary), var(--primary-dark));
-      padding:1.5rem 2rem; font-size:2rem; font-weight:700; text-align:center;
-      box-shadow:var(--shadow); position:sticky; top:0; z-index:999; color:#0f0f0f;
-    }
+        #navBar {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: #fff;
+            text-align: center;
+            padding: 1.5rem 1rem;
+            font-size: 1.75rem;
+            font-weight: 700;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: var(--shadow);
+        }
 
-    .hero {
-      padding:6rem 1rem; text-align:center;
-    }
-    .hero h1 {
-      font-size:3.5rem; font-weight:700;
-      background:linear-gradient(90deg, var(--primary), #66ffcc);
-      -webkit-background-clip:text; -webkit-text-fill-color:transparent;
-      margin-bottom:1rem;
-    }
-    .hero p {
-      font-size:1.25rem; color:var(--secondary-text);
-      max-width:700px; margin:0 auto;
-    }
-    .btn-glow {
-      display:inline-block; margin-top:2.5rem; padding:1rem 2rem;
-      border-radius:var(--radius); background:var(--primary-dark); color:#000;
-      font-weight:600; font-size:1.1rem; transition:var(--transition);
-      box-shadow:0 0 15px var(--primary);
-    }
-    .btn-glow:hover {
-      transform:scale(1.05); background:var(--primary);
-      box-shadow:0 0 25px var(--primary);
-    }
+        /* Hero Section */
+        .hero {
+            padding: 5rem 1rem;
+            text-align: center;
+            background: var(--surface);
+            border-radius: var(--radius) var(--radius) 0 0;
+            box-shadow: var(--shadow);
+            margin-bottom: 2rem;
+        }
+        .hero h1 {
+            font-size: 3rem;
+            background: linear-gradient(90deg, var(--primary), #66ffcc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 1rem;
+        }
+        .hero p {
+            font-size: 1.2rem;
+            color: #555;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+        }
+        .btn-primary {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: var(--primary);
+            color: #fff;
+            border-radius: var(--radius);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            box-shadow: var(--shadow);
+        }
+        .btn-primary:hover {
+            background: var(--primary-dark);
+            transform: translateY(-3px);
+        }
 
-    /* App Section */
-    #app {
-      padding:4rem 1rem; max-width:1000px; margin:0 auto;
-    }
-    #app h2 {
-      font-size:2rem; margin-bottom:1.5rem; text-align:center;
-    }
-    .subject-list {
-      display:grid; grid-template-columns:repeat(auto-fit, minmax(200px,1fr)); gap:1rem;
-    }
-    .subject-card {
-      background:var(--glass-bg); backdrop-filter:blur(10px);
-      border:1px solid var(--glass-border); padding:2rem; border-radius:var(--radius);
-      text-align:center; transition:var(--transition); box-shadow:var(--shadow);
-    }
-    .subject-card:hover {
-      transform:translateY(-5px); border-color:var(--primary);
-    }
-    .subject-card a {
-      color:var(--text); font-weight:600;
-    }
+        /* App Section */
+        #app {
+            max-width: 1200px;
+            margin: 0 auto 4rem;
+            padding: 0 1rem;
+        }
+        #app h2 {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 2rem;
+        }
+        .subject-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
+            gap: 1rem;
+        }
+        .subject-card {
+            background: var(--surface);
+            border-radius: var(--radius);
+            padding: 2rem;
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+        .subject-card:hover {
+            transform: translateY(-5px);
+            border: 2px solid var(--primary);
+        }
+        .subject-card a {
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: var(--text);
+        }
 
-    .social-section {
-      display:flex; justify-content:center; flex-wrap:wrap; gap:1.5rem; margin:4rem 0 2rem;
-    }
-    .social-btn {
-      background:var(--glass-bg); border:1px solid var(--glass-border);
-      backdrop-filter:blur(10px); padding:1rem 2rem; border-radius:var(--radius);
-      font-weight:600; display:flex; align-items:center; gap:0.75rem;
-      box-shadow:var(--shadow); transition:var(--transition);
-    }
-    .social-btn:hover { transform:translateY(-3px); background:var(--primary-dark); }
+        /* Question Preview */
+        .question {
+            background: var(--surface);
+            border-radius: var(--radius);
+            margin: 2rem auto;
+            max-width: 800px;
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            transition: var(--transition);
+            display: flex;
+        }
+        .question:hover {
+            transform: translateY(-3px);
+        }
+        .questionLeft {
+            flex: 1;
+            padding: 2rem;
+        }
+        .questionLeft h3 {
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+        .questionLeft ol {
+            padding-left: 1.25rem;
+            margin-top: 1rem;
+        }
+        .questionLeft ol[type="a"] > li {
+            margin-bottom: 1rem;
+        }
+        .questionLeft ol[type="i"] > li {
+            margin-bottom: 0.5rem;
+            font-style: italic;
+        }
+        .questionRight {
+            width: 180px;
+            background: var(--background);
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .marks {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+        .calculator {
+            padding: 0.5rem 1rem;
+            border-radius: 2rem;
+            font-weight: 500;
+            text-transform: uppercase;
+        }
+        .calculatorAllowed {
+            background: var(--primary);
+            color: #fff;
+        }
+        .calculatorNotAllowed {
+            background: #ef4444;
+            color: #fff;
+        }
 
-    @media (max-width:768px) {
-      .hero h1 { font-size:2.5rem; }
-      .hero p { font-size:1.05rem; }
-    }
-  </style>
+        /* Social Section */
+        .social-section {
+            text-align: center;
+            margin-top: 4rem;
+        }
+        .social-section a {
+            display: inline-block;
+            margin: 0 0.5rem;
+            padding: 0.75rem 1.5rem;
+            background: var(--surface);
+            color: var(--text);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+        .social-section a:hover {
+            transform: translateY(-3px);
+            background: var(--primary);
+            color: #fff;
+        }
+
+        @media (max-width: 768px) {
+            .question {
+                flex-direction: column;
+            }
+            .questionRight {
+                width: 100%;
+                padding: 1rem;
+            }
+        }
+    </style>
 </head>
+
 <body>
-  <header id="navBar">IB Hub by Luke Yoon</header>
+    <header id="navBar">IB Hub by Luke Yoon</header>
 
-  <!-- Hero -->
-  <section class="hero" id="home">
-    <h1>Master the IB Diploma</h1>
-    <p>Over 1000+ exam-style questions with detailed mark schemes.<br>Absolutely free • No login needed • 100% open source.</p>
-    <a href="#app" class="btn-glow">🚀 Start Practicing Now</a>
+    <main id="mainContent">
+        <section class="hero">
+            <h1>Master the IB Diploma</h1>
+            <p>1000+ exam-style questions with detailed mark schemes.<br>Completely free • No login required • Open source</p>
+            <a href="#app" class="btn-primary">🚀 Start Practicing Now</a>
+        </section>
 
-    <div class="social-section">
-      <a class="social-btn" href="https://github.com/luke0514/" target="_blank">
-        <i class="fab fa-github"></i> GitHub Repository
-      </a>
-      <a class="social-btn" href="https://discord.gg/8YcBVKyG" target="_blank">
-        <i class="fab fa-discord"></i> Study Community
-      </a>
-    </div>
-  </section>
+        <section id="app">
+            <h2>Choose a Subject to Practice</h2>
+            <div class="subject-grid">
+                <div class="subject-card"><a href="questions.html?subject=MathSL">Mathematics SL</a></div>
+                <div class="subject-card"><a href="questions.html?subject=PhysicsHL">Physics HL</a></div>
+                <div class="subject-card"><a href="questions.html?subject=BiologyHL">Biology HL</a></div>
+                <div class="subject-card"><a href="questions.html?subject=ChemistryHL">Chemistry HL</a></div>
+            </div>
+        </section>
 
-  <!-- App: Choose Subject -->
-  <section id="app">
-    <h2>📑 Choose a Subject to Practice</h2>
-    <div class="subject-list">
-      <div class="subject-card"><a href="questions.html?subject=MathSL">Mathematics SL</a></div>
-      <div class="subject-card"><a href="questions.html?subject=PhysicsHL">Physics HL</a></div>
-      <div class="subject-card"><a href="questions.html?subject=BiologyHL">Biology HL</a></div>
-      <div class="subject-card"><a href="questions.html?subject=ChemistryHL">Chemistry HL</a></div>
-      <!-- Add more subjects as needed -->
-    </div>
-  </section>
+        <!-- Preview Question -->
+        <div class="question">
+            <div class="questionLeft">
+                <h3>Sample Question</h3>
+                <ol type="a">
+                    <li>
+                        Describe the structure of DNA.
+                        <ol type="i">
+                            <li>Include the type of bond between base pairs.</li>
+                            <li>Mention the overall shape of the molecule.</li>
+                        </ol>
+                    </li>
+                    <li>Explain the process of DNA replication.</li>
+                    <li>Compare prokaryotic and eukaryotic DNA.</li>
+                </ol>
+            </div>
+            <div class="questionRight">
+                <div class="marks">10 Marks</div>
+                <div class="calculator calculatorAllowed">Calculator Allowed</div>
+            </div>
+        </div>
 
-  <script src="./assets/main.js"></script>
+        <section class="social-section">
+            <a href="https://github.com/luke0514/" target="_blank"> <i class="fab fa-github"></i> GitHub</a>
+            <a href="https://discord.gg/8YcBVKyG" target="_blank"><i class="fab fa-discord"></i> Discord</a>
+        </section>
+    </main>
+
+    <script src="./assets/main.js"></script>
 </body>
 </html>
