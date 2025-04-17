@@ -10,146 +10,226 @@
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-MZR8CD854N"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}  
+        function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
         gtag('config', 'G-MZR8CD854N');
     </script>
 
     <style>
-        /* Core System */
+        /* ===== Core Design System ===== */
         :root {
             --primary: #00C853;
             --primary-dark: #009933;
             --background: #f8fafc;
+            --surface: #ffffff;
             --text: #1a1a1a;
             --border: #e2e8f0;
-            --shadow: 0 4px 6px rgba(0,0,0,0.1);
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
             --radius: 1rem;
-            --transition: all 0.3s ease;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
-        *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
-        body { background: var(--background); color: var(--text); font-family: 'Cera Pro', sans-serif; line-height:1.6; }
 
-        /* Navbar */
+        /* ===== Typography ===== */
+        @font-face {
+            font-family: 'Cera Pro';
+            src: url(./assets/CeraPro.ttf) format('truetype');
+            font-weight: 400;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: 'Cera Pro';
+            src: url(./assets/CeraProMedium.otf) format('opentype');
+            font-weight: 500;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: 'Cera Pro';
+            src: url(./assets/CeraProBold.otf) format('opentype');
+            font-weight: 700;
+            font-style: normal;
+        }
+
+        body {
+            margin: 0;
+            background: var(--background);
+            color: var(--text);
+            font-family: 'Cera Pro', sans-serif;
+            line-height: 1.6;
+        }
+
+        /* ===== Navigation Bar ===== */
         #navBar {
-            background: var(--primary);
-            color: #fff;
+            padding: 1.5rem 2rem;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
             text-align: center;
-            padding: 1rem;
+            font-size: 1.75rem;
+            box-shadow: var(--shadow);
             position: sticky;
-            top:0;
-            z-index:100;
-            box-shadow: var(--shadow);
+            top: 0;
+            z-index: 100;
         }
 
-        /* Hero */
-        .hero {
-            text-align: center;
-            padding: 4rem 1rem;
+        /* ===== Main Content Area ===== */
+        #mainContent {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+            min-height: 100vh;
         }
-        .hero h1 {
-            font-size: 2.5rem;
-            background: linear-gradient(90deg, var(--primary), var(--primary-dark));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            margin-bottom:1rem;
-        }
-        .hero p {
-            margin-bottom:2rem;
-        }
-        .btn-primary {
+
+        /* ===== Interactive Elements ===== */
+        .homepageButton {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 1.25rem 2.5rem;
+            margin: 1rem;
+            border-radius: var(--radius);
             background: var(--primary);
-            color: #fff;
-            padding: 0.75rem 1.5rem;
-            border-radius: var(--radius);
+            color: white !important;
             text-decoration: none;
             transition: var(--transition);
             box-shadow: var(--shadow);
+            border: 2px solid transparent;
+            font-weight: 500;
         }
-        .btn-primary:hover {
+
+        .homepageButton:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.15);
             background: var(--primary-dark);
         }
 
-        /* Question Card */
-        #question {
-            max-width:800px;
-            margin:2rem auto;
-        }
-        .question-card {
-            background: #fff;
-            border: 1px solid var(--border);
+        /* ===== Question Display System ===== */
+        .question {
             border-radius: var(--radius);
+            border: 2px solid var(--border);
+            margin: 2rem 0;
+            background: var(--surface);
+            transition: var(--transition);
+            display: flex;
             overflow: hidden;
+        }
+
+        .question:hover {
+            transform: translateY(-3px);
             box-shadow: var(--shadow);
-            transition: var(--transition);
         }
-        .question-card:hover { transform: translateY(-3px); }
-        .question-header {
-            background: var(--primary-dark);
-            color: #fff;
-            padding:1rem;
-            font-weight:500;
-        }
-        .question-body {
-            padding:1.5rem;
-        }
-        .question-body ol[type="a"] { list-style: lower-alpha inside; margin-bottom:1rem; }
-        .question-body ol[type="i"] { list-style: lower-roman inside; margin-left:1rem; margin-top:0.5rem; }
-        .question-body li { margin-bottom:0.75rem; }
 
-        /* Social */
-        .social-section {
-            text-align: center;
-            margin:3rem 0;
+        .questionLeft {
+            flex: 1;
+            padding: 2rem;
+            border-right: 2px solid var(--border);
         }
-        .social-section a {
-            margin:0 0.5rem;
+
+        .questionRight {
+            width: 200px;
+            padding: 2rem;
+            background: #f8fafc;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .marks {
+            font-size: 1.5rem;
+            font-weight: 700;
             color: var(--primary);
-            text-decoration: none;
+            position: relative;
         }
 
-        @media(max-width:600px) {
-            .hero h1 { font-size:2rem; }
+        .marks::before,
+        .marks::after {
+            color: var(--text);
+            opacity: 0.5;
+        }
+
+        .calculator {
+            padding: 0.5rem 1.25rem;
+            border-radius: 2rem;
+            font-size: 0.9rem;
+            font-weight: 500;
+            text-transform: uppercase;
+        }
+
+        .calculatorAllowed {
+            background: var(--primary);
+            color: white;
+        }
+
+        .calculatorNotAllowed {
+            background: #ef4444;
+            color: white;
+        }
+
+        /* ===== Social Links Section ===== */
+        .social-section {
+            margin-top: 4rem;
+            padding-top: 3rem;
+            border-top: 2px solid var(--border);
+        }
+
+        .social-section h4 {
+            margin: 1.5rem 0;
+        }
+
+        /* ===== Responsive Design ===== */
+        @media (max-width: 768px) {
+            .question {
+                flex-direction: column;
+            }
+
+            .questionRight {
+                width: 100%;
+                border-top: 2px solid var(--border);
+                border-right: none;
+            }
         }
     </style>
 </head>
 
 <body>
-    <header id="navBar">IB Hub by Luke Yoon</header>
-
-    <main id="mainContent">
-        <section class="hero">
-            <h1>Master the IB Diploma</h1>
-            <p>1000+ exam-style questions with detailed mark schemes.<br>Completely free • No login required • Open source</p>
-            <!-- Updated href to match question id -->
-            <a href="#question" class="btn-primary">🚀 Start Studying</a>
-        </section>
-
-        <!-- Question Section -->
-        <section id="question">
-            <div class="question-card">
-                <div class="question-header">Question 1</div>
-                <div class="question-body">
-                    <ol type="a">
-                        <li>
-                            Describe the structure of DNA.
-                            <ol type="i">
-                                <li>Include the type of bond between base pairs.</li>
-                                <li>Mention the overall shape of the molecule.</li>
-                            </ol>
-                        </li>
-                        <li>Explain the process of DNA replication.</li>
-                        <li>Compare prokaryotic and eukaryotic DNA.</li>
-                    </ol>
-                </div>
+    <!-- Original Structure Preserved -->
+    <h1 id="navBar" style="margin: 0;">IB Hub by Luke Yoon</h1>
+    
+    <div id="mainContent">
+        <div style="text-align: center; min-height: 100vh;">
+            <!-- Hero Section -->
+            <div style="padding: 4rem 1rem;">
+                <h1 style="font-size: 2.5rem; margin-bottom: 1.5rem;">Master the IB Diploma</h1>
+                <p style="font-size: 1.2rem; color: #666; max-width: 800px; margin: 0 auto;">
+                    1000+ exam-style questions with detailed mark schemes<br>
+                    Completely free • No login required • Open source
+                </p>
+                <h2 style="margin: 3rem 0;">
+                    <a href="#app" class="homepageButton">
+                        🚀 Start Practicing Now
+                    </a>
+                </h2>
             </div>
-        </section>
 
-        <section class="social-section">
-            <a href="https://github.com/luke0514/" target="_blank">GitHub</a>
-            <a href="https://discord.gg/8YcBVKyG" target="_blank">Discord</a>
-        </section>
-    </main>
+            <!-- Social Links -->
+            <div class="social-section">
+                <h4>
+                    <a href="https://github.com/luke0514/" target="_blank" class="homepageButton" 
+                       style="background: #2d3436;">
+                        <i class="fab fa-github"></i> GitHub Repository
+                    </a>
+                </h4>
+                <h4>
+                    <a href="https://discord.gg/8YcBVKyG" target="_blank" class="homepageButton" 
+                       style="background: #5865F2;">
+                        <i class="fab fa-discord"></i> Study Community
+                    </a>
+                </h4>
+            </div>
+        </div>
+    </div>
+
+    <script src="./assets/main.js"></script>
 </body>
-
 </html>
