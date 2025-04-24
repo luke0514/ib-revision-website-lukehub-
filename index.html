@@ -4,6 +4,8 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Base URL (ensure script paths resolve correctly even if hosted in a subfolder) -->
+    <base href="/" />
     <title>IB Hub - Ultimate Revision Platform</title>
     
     <!-- Google tag (gtag.js) -->
@@ -262,12 +264,13 @@
             Completely free • No login required • Open source</p>
             
             <div style="margin-top: 3rem;">
-                <a href="#app" class="homepageButton" onclick="document.getElementById('app').scrollIntoView({behavior: 'smooth'})">
+                <a href="#app" class="homepageButton" onclick="document.getElementById('app').scrollIntoView({behavior: 'smooth'});">
                     <i class="fas fa-rocket"></i> Start Practicing Now
                 </a>
             </div>
         </section>
 
+        <!-- Mounting point for questions -->
         <div id="app"></div>
 
         <section class="social-section">
@@ -282,6 +285,8 @@
         </section>
     </main>
 
-    <script src="./js/main.js" defer></script>
+    <!-- Correctly referenced script -->
+    <script src="/js/main.js" defer></script>
 </body>
+
 </html>
