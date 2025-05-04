@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -14,6 +13,9 @@
     gtag('config', 'G-MZR8CD854N');
   </script>
 
+  <!-- Fallback Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+
   <style>
     :root {
       --bg-color: #ffffff;
@@ -21,51 +23,59 @@
       --accent-color: #3498db;
       --card-bg: #f9f9f9;
     }
+
     body.dark {
       --bg-color: #1e1e1e;
       --text-color: #f0f0f0;
       --accent-color: #2980b9;
       --card-bg: #2b2b2b;
     }
+
     body {
       margin: 0;
       padding: 0;
       background: var(--bg-color);
       color: var(--text-color);
-      font-family: 'Cera Pro', sans-serif;
+      font-family: 'Inter', sans-serif;
       line-height: 1.6;
       transition: background 0.3s, color 0.3s;
     }
+
     header {
       background-color: var(--accent-color);
       padding: 20px;
       color: white;
       text-align: center;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
     }
+
     nav {
       text-align: center;
       background: var(--card-bg);
       padding: 10px;
     }
+
     nav a {
       margin: 0 10px;
       color: var(--accent-color);
       text-decoration: none;
       font-weight: bold;
     }
+
     main {
       max-width: 900px;
       margin: 30px auto;
       padding: 20px;
       background: var(--card-bg);
       border-radius: 16px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
     }
+
     h1 {
       font-size: 2.4rem;
       margin-bottom: 10px;
     }
+
     .question {
       background: var(--bg-color);
       border-left: 5px solid var(--accent-color);
@@ -74,9 +84,11 @@
       border-radius: 10px;
       transition: background 0.3s;
     }
+
     .question:hover {
       background: #eef6fd;
     }
+
     .button {
       display: inline-block;
       background: var(--accent-color);
@@ -87,19 +99,25 @@
       text-decoration: none;
       transition: background 0.3s;
     }
+
     .button:hover {
       background: #217dbb;
     }
+
     .timer-box {
       position: fixed;
       bottom: 10px;
       right: 10px;
       background: var(--card-bg);
-      padding: 10px 15px;
+      padding: 12px 18px;
       border-radius: 10px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
       font-weight: bold;
+      font-size: 1.2rem;
+      z-index: 9999;
+      border: 2px solid var(--accent-color);
     }
+
     .toggle-theme {
       position: fixed;
       top: 10px;
@@ -111,6 +129,7 @@
       border-radius: 6px;
       cursor: pointer;
       font-weight: bold;
+      z-index: 9999;
     }
   </style>
 </head>
