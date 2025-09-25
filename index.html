@@ -53,10 +53,26 @@
     }
     #landing h1{ margin:0 0 24px; color:#eef2f6; }
     #landing .homepageButton{ 
-      background-color: rgb(205, 50, 50); padding: 0.75rem 1rem; border-radius: 0.8rem; 
+      background-color: limegreen; padding: 0.75rem 1rem; border-radius: 0.8rem; 
       font-weight:700; display:inline-block;
     }
     #landing hr{ border: none; border-top: 1px solid rgba(255,255,255,0.12); width: 240px; margin: 24px auto; opacity:.5; }
+  </style>
+
+  <!-- App view polish (SCOPED to #app so it only applies after Enter) -->
+  <style>
+    #app{
+      background:#fff; color:#000; min-height:100vh; padding:20px; 
+    }
+    #app a{ color:#000; text-decoration:none; }
+    #app a:hover{ text-decoration:underline; }
+    /* nicer subject rows without touching global .choice used elsewhere */
+    #app .choice{ 
+      background:#fff; border:2px solid #000; border-radius:14px; 
+      padding:14px 20px; margin:12px 0; font-weight:700; 
+      box-shadow:0 0 0 0 rgba(0,0,0,0); transition: background .2s, box-shadow .2s;
+    }
+    #app .choice:hover{ background:#f5f5f5; box-shadow:0 2px 8px rgba(0,0,0,.06); }
   </style>
 </head>
 
@@ -69,7 +85,7 @@
       <br><br>
       <h2><a href="#app" class="homepageButton">Enter</a></h2>
       <br><br><br>
-      <!-- Removed other links per your request -->
+      <!-- No extra links by request -->
     </div>
   </div>
   <script src="./assets/main.js"></script>
