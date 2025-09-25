@@ -8,51 +8,20 @@
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-MZR8CD854N"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
+        function gtag(){dataLayer.push(arguments);} 
         gtag('js', new Date());
         gtag('config', 'G-MZR8CD854N');
     </script>
 
+  <!-- Original IB styles kept EXACT so JS/question layouts remain unchanged -->
   <style>
-    /* ------------------------------------------------------------------ */
-    /*  Typography                                                       */
-    /* ------------------------------------------------------------------ */
     @font-face{font-family:'Cera Pro';src:url(./assets/CeraPro.ttf) format('truetype');font-weight:400;font-style:normal}
     @font-face{font-family:'Cera Pro';src:url(./assets/CeraProMedium.otf) format('opentype');font-weight:500;font-style:normal}
     @font-face{font-family:'Cera Pro';src:url(./assets/CeraProBold.otf) format('opentype');font-weight:700;font-style:normal}
-    html, body { margin: 0; height: 100%; font-family:'Cera Pro', sans-serif; }
-
-    /* ------------------------------------------------------------------ */
-    /*  Landing page                                                     */
-    /* ------------------------------------------------------------------ */
-    #landing{
-      display:flex; flex-direction:column; justify-content:center; align-items:center;
-      min-height:100vh;
-      background: linear-gradient(135deg, #0a0f13 0%, #0c1a2b 100%);
-      color:#f5f5f5; text-align:center;
-    }
-    #landing h1{ font-size:3rem; margin:0 0 1.5rem 0; }
-    #landing .enter-btn{
-      display:inline-block; padding:1rem 2rem; border-radius:1rem;
-      background-color:#55e28f; color:#0a0f13; font-weight:600; text-decoration:none;
-      transition:background-color .3s ease;
-    }
-    #landing .enter-btn:hover{ background-color:#45c27a; }
-
-    /* ------------------------------------------------------------------ */
-    /*  App area                                                         */
-    /* ------------------------------------------------------------------ */
-    #app{ background:#fff; color:#000; min-height:100vh; padding-top:1rem; padding-bottom:4rem; }
-    #app a{ color:inherit; text-decoration:none; }
-    #app a:hover{ text-decoration:underline; }
-    #app .choice{ border:2px solid #000; border-radius:12px; padding:14px 20px; margin:12px 0; font-weight:600; background:#fff; transition:background-color .2s ease; }
-    #app .choice:hover{ background:#f5f5f5; }
-
-    /* ------------------------------------------------------------------ */
-    /*  Original question styles                                         */
-    /* ------------------------------------------------------------------ */
     ol{list-style:none;counter-reset:li 0}
     ol li:before{counter-increment:li;content:counter(li) ". "}
+    body,button,html{font-family:"Cera Pro",sans-serif}
+    a{text-decoration:none;color:#000}
     .choice{border-radius:1rem;border:.125rem solid #000;padding:1rem}
     .choice:hover{background-color:#f0f0f0}
     .navChoice{color:limegreen}
@@ -72,76 +41,80 @@
     .calculatorNotAllowed{background-color:red}
     .homepageButton:hover{box-shadow:3px 3px 5px}
   </style>
+
+  <!-- Landing-only polish (SCOPED to #landing so it does NOT affect JS-rendered questions) -->
+  <style>
+    #landing{ 
+      min-height: 100vh; 
+      display:flex; flex-direction:column; justify-content:center; align-items:center; 
+      background: radial-gradient(900px 600px at 50% 20%, rgba(85,226,143,.18), transparent 60%),
+                  linear-gradient(180deg, #0b0f12 0%, #12171c 100%);
+      color:#eef2f6; text-align:center;
+    }
+    #landing h1{ margin:0 0 24px; color:#eef2f6; }
+    #landing .homepageButton{ 
+      background-color: rgb(37, 158, 89); padding: 0.75rem 1rem; border-radius: 0.8rem; 
+      font-weight:700; display:inline-block;
+    }
+    #landing hr{ border: none; border-top: 1px solid rgba(255,255,255,0.12); width: 240px; margin: 24px auto; opacity:.5; }
+  </style>
 </head>
 
 <body>
-  <h1 id="navBar" style="margin: 0; display:none;"></h1>
-
-  <!-- Landing -->
-  <div id="landing">
-    <h1>Luke Hub 2025</h1>
-    <a href="#app" class="enter-btn">Enter</a>
+  <h1 id="navBar" style="margin: 0;"></h1>
+  <div id="mainContent" style="margin: auto; min-height: 100vh;">
+    <!-- LANDING (scoped styles) -->
+    <div id="landing" style="min-height: 100vh;">
+      <h1>Luke Hub 2025</h1>
+      <br><br>
+      <h2><a href="#app" class="homepageButton">Enter</a></h2>
+      <br><br><br>
+      <!-- Removed other links per your request -->
+    </div>
   </div>
-
-  <!-- App container populated by your JS once hash is #app -->
-  <div id="mainContent"></div>
-
-  <!-- Timer Widget -->
-  <div class="timer-box" style="
-      position: fixed;
-      bottom: 15px;
-      right: 15px;
-      background: #fff;
-      padding: 10px 15px;
-      border-radius: 10px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-      font-weight: bold;
-      font-family: sans-serif;
-      z-index: 9999;
-  ">
-    ⏱ Time Spent: <span id="timer">0:00</span>
-    <button onclick="toggleTimer()" style="margin-left: 10px;">Start / Stop</button>
-  </div>
-
   <script src="./assets/main.js"></script>
 
-  <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      let seconds = 0;
-      let interval = null;
-      const timerDisplay = document.getElementById('timer');
+<!-- Timer Widget (unchanged) -->
+<div class="timer-box" style="
+    position: fixed;
+    bottom: 15px;
+    right: 15px;
+    background: #fff;
+    padding: 10px 15px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    font-weight: bold;
+    font-family: sans-serif;
+    z-index: 9999;
+">
+  ⏱ Time Spent: <span id="timer">0:00</span>
+  <button onclick="toggleTimer()" style="margin-left: 10px;">Start / Stop</button>
+</div>
 
-      function updateTimer() {
-        seconds++;
-        const mins = Math.floor(seconds / 60);
-        const secs = seconds % 60;
-        timerDisplay.textContent = `${mins}:${secs.toString().padStart(2, '0')}`;
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    let seconds = 0;
+    let interval = null;
+    const timerDisplay = document.getElementById("timer");
+
+    function updateTimer() {
+      seconds++;
+      const mins = Math.floor(seconds / 60);
+      const secs = seconds % 60;
+      timerDisplay.textContent = `${mins}:${secs.toString().padStart(2, '0')}`;
+    }
+
+    window.toggleTimer = function () {
+      if (interval) {
+        clearInterval(interval);
+        interval = null;
+      } else {
+        interval = setInterval(updateTimer, 1000);
       }
+    };
+  });
+</script>
 
-      window.toggleTimer = function () {
-        if (interval) {
-          clearInterval(interval);
-          interval = null;
-        } else {
-          interval = setInterval(updateTimer, 1000);
-        }
-      };
-
-      // Toggle landing/app on hash
-      function handleHash() {
-        const landing = document.getElementById('landing');
-        const mainContent = document.getElementById('mainContent');
-        if (window.location.hash === '#app') {
-          landing.style.display = 'none';
-          mainContent.style.display = 'block';
-        } else {
-          landing.style.display = 'flex';
-          mainContent.style.display = 'none';
-        }
-      }
-      window.addEventListener('hashchange', handleHash);
-      handleHash();
-    });
-  </script>
 </body>
+
 </html>
