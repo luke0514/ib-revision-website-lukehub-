@@ -9,67 +9,68 @@
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-MZR8CD854N"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
-      function gtag() { dataLayer.push(arguments); }
+      function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
       gtag('config', 'G-MZR8CD854N');
     </script>
 
     <style>
       :root {
-        --bg: linear-gradient(180deg, #0b0f12 0%, #12171c 100%);
+        --bg: #0b0f12;
         --text: #eef2f6;
         --brand: #55e28f;
-        --card-bg: rgba(255, 255, 255, 0.05);
-        --card-border: rgba(255, 255, 255, 0.1);
-        --radius-xl: 18px;
       }
-      @media (prefers-color-scheme: light) {
-        :root {
-          --bg: linear-gradient(180deg, #f6f8fb 0%, #edf1f4 100%);
-          --text: #0b0f12;
-          --card-bg: rgba(255,255,255,0.8);
-          --card-border: rgba(0,0,0,0.1);
-        }
+      body {
+        margin: 0;
+        font-family: "Cera Pro", sans-serif;
+        background: var(--bg);
+        color: var(--text);
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
       }
-
-      @font-face{font-family:'Cera Pro';src:url(./assets/CeraPro.ttf) format('truetype');font-weight:400;font-style:normal}
-      @font-face{font-family:'Cera Pro';src:url(./assets/CeraProMedium.otf) format('opentype');font-weight:500;font-style:normal}
-      @font-face{font-family:'Cera Pro';src:url(./assets/CeraProBold.otf) format('opentype');font-weight:700;font-style:normal}
-
-      *, *::before, *::after { box-sizing: border-box; }
-      body { margin: 0; font-family: "Cera Pro", sans-serif; color: var(--text); background: var(--bg); min-height: 100vh; display: flex; flex-direction: column; }
-      a { text-decoration: none; color: inherit; }
-
-      header { text-align: center; padding: 60px 20px 40px; }
-      header h1 { font-size: clamp(2rem, 5vw, 3rem); margin: 0; }
-
-      main { flex: 1; display: flex; align-items: center; justify-content: center; padding: 20px; }
-      .card {
-        background: var(--card-bg);
-        border: 1px solid var(--card-border);
-        border-radius: var(--radius-xl);
-        padding: 40px;
+      header {
         text-align: center;
-        max-width: 500px;
-        width: 100%;
+        padding: 50px 20px 20px;
+      }
+      header h1 {
+        margin: 0;
+      }
+      main {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
       }
       .btn {
         display: inline-block;
         padding: 12px 24px;
         border-radius: 999px;
-        font-weight: 700;
         background: var(--brand);
         color: #0b0f12;
-        margin-top: 20px;
-        transition: transform 0.15s ease, box-shadow 0.2s ease;
+        font-weight: 700;
+        text-decoration: none;
       }
-      .btn:hover { transform: translateY(-2px); box-shadow: 0 6px 16px rgba(85,226,143,0.4); }
-
-      footer { text-align: center; padding: 16px; font-size: 0.9rem; color: var(--text); opacity: 0.6; }
-
-      .timer-box { border: 1px solid var(--card-border); border-radius: 12px; backdrop-filter: blur(6px); box-shadow: 0 2px 10px rgba(0,0,0,0.25); }
-      .timer-box button { cursor: pointer; border: 1px solid var(--card-border); border-radius: 8px; padding: 6px 10px; background: rgba(255,255,255,0.08); color: var(--text); font-weight: 600; }
-      .timer-box button:hover { background: rgba(255,255,255,0.14); }
+      .btn:hover {
+        opacity: 0.9;
+      }
+      footer {
+        text-align: center;
+        padding: 15px;
+        font-size: 0.85rem;
+        opacity: 0.7;
+      }
+      .timer-box {
+        border: 1px solid rgba(255,255,255,0.2);
+        border-radius: 12px;
+        backdrop-filter: blur(6px);
+      }
+      .timer-box button {
+        border-radius: 8px;
+        padding: 6px 10px;
+        border: none;
+        cursor: pointer;
+      }
     </style>
   </head>
 
@@ -79,47 +80,41 @@
     </header>
 
     <main id="mainContent">
-      <div class="card">
-        <h2>IB Question Bank</h2>
-        <a href="#app" class="btn">Enter</a>
-      </div>
+      <a href="#app" class="btn">Enter IB Questions</a>
     </main>
 
     <footer>
-      <span>Luke Hub 2025</span>
+      Luke Hub 2025
     </footer>
 
     <script src="./assets/main.js"></script>
 
     <!-- Timer Widget -->
     <div class="timer-box" style="
-        position: fixed;
-        bottom: 15px;
-        right: 15px;
-        background: rgba(0,0,0,0.35);
-        padding: 10px 14px;
-        border-radius: 12px;
-        font-weight: 700;
-        font-family: inherit;
-        z-index: 9999;
-      ">
+      position: fixed;
+      bottom: 15px;
+      right: 15px;
+      background: rgba(0,0,0,0.35);
+      padding: 10px 14px;
+      border-radius: 12px;
+      font-weight: 700;
+      font-family: inherit;
+      z-index: 9999;">
       ⏱ Time Spent: <span id="timer">0:00</span>
       <button onclick="toggleTimer()" style="margin-left: 10px;">Start / Stop</button>
     </div>
 
     <script>
-      document.addEventListener('DOMContentLoaded', function () {
+      document.addEventListener("DOMContentLoaded", function () {
         let seconds = 0;
         let interval = null;
-        const timerDisplay = document.getElementById('timer');
-
+        const timerDisplay = document.getElementById("timer");
         function updateTimer() {
           seconds++;
           const mins = Math.floor(seconds / 60);
           const secs = seconds % 60;
-          timerDisplay.textContent = `${mins}:${secs.toString().padStart(2, '0')}`;
+          timerDisplay.textContent = `${mins}:${secs.toString().padStart(2, "0")}`;
         }
-
         window.toggleTimer = function () {
           if (interval) {
             clearInterval(interval);
